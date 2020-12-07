@@ -280,6 +280,9 @@ public:
 	bool getDataEKFGSF(float *yaw_composite, float *yaw_variance, float yaw[N_MODELS_EKFGSF],
 			   float innov_VN[N_MODELS_EKFGSF], float innov_VE[N_MODELS_EKFGSF], float weight[N_MODELS_EKFGSF]);
 
+	bool isYawAngleObservable() const { return _yaw_angle_observable; }
+	bool isMagBiasObservable() const { return _mag_bias_observable; }
+
 private:
 
 	// set the internal states and status to their default value
@@ -772,8 +775,6 @@ private:
 	void check3DMagFusionSuitability();
 	void checkYawAngleObservability();
 	void checkMagBiasObservability();
-	bool isYawAngleObservable() const { return _yaw_angle_observable; }
-	bool isMagBiasObservable() const { return _mag_bias_observable; }
 	bool canUse3DMagFusion() const;
 
 	void checkMagDeclRequired();
